@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lakeside Leadership — Team Experiences on Lake Burley Griffin</title>
+<meta name="description" content="Facilitated team development experiences on Lake Burley Griffin, Canberra. Fully arranged, fully documented.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   LAKESIDE LEADERSHIP — immersive narrative homepage
+   Palette: Deep Blue #0F1F3A · Navy #14263D · Gold #B79B61
+            Ivory #F8F6F1 · Slate #667085 · Brown #4A2E1F
+   Type: EB Garamond (display) · Montserrat (UI/body)
+   ============================================================ */
+:root{
+  --ink:#0F1F3A;
+  --navy:#14263D;
+  --gold:#B79B61;
+  --gold-soft:#cdb88a;
+  --ivory:#F8F6F1;
+  --slate:#667085;
+  --brown:#4A2E1F;
+  --serif:'EB Garamond', Georgia, serif;
+  --sans:'Montserrat', -apple-system, sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--ink);
+  color:var(--ivory);
+  font-family:var(--sans);
+  font-weight:300;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--gold);color:var(--ink)}
+
+/* ---------- grain overlay (whole site) ---------- */
+.grain{
+  position:fixed;inset:0;pointer-events:none;z-index:90;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E");
+}
+
+/* ---------- navigation: invisible until needed ---------- */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:28px 48px;
+  opacity:0;transform:translateY(-12px);
+  transition:opacity .9s ease,transform .9s ease,background .5s ease;
+}
+nav.visible{opacity:1;transform:none}
+nav.scrolled{background:linear-gradient(to bottom,rgba(15,31,58,.92),rgba(15,31,58,0));backdrop-filter:blur(2px)}
+.nav-mark{display:flex;align-items:center;gap:14px;text-decoration:none}
+.nav-mark svg{width:34px;height:34px}
+.nav-mark span{
+  font-family:var(--serif);font-size:17px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--ivory);font-weight:500;
+}
+.nav-links{display:flex;align-items:center;gap:40px}
+.nav-links a{
+  color:rgba(248,246,241,.75);text-decoration:none;
+  font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:400;
+  transition:color .3s;
+}
+.nav-links a:hover{color:var(--gold-soft)}
+.nav-enquire{
+  border:1px solid rgba(183,155,97,.6)!important;color:var(--gold-soft)!important;
+  padding:11px 26px;transition:all .3s!important;
+}
+.nav-enquire:hover{background:var(--gold);color:var(--ink)!important;border-color:var(--gold)!important}
+
+/* ============================================================
+   SCENE 1 — ARRIVAL. Darkness, water, one sentence.
+   No logo dominance. No CTA. No explanation.
+   ============================================================ */
+.scene-arrival{
+  position:relative;height:100vh;min-height:680px;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+}
+.arrival-sky{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 120% 70% at 50% 110%, #2a3c5c 0%, transparent 60%),
+    radial-gradient(ellipse 80% 50% at 50% 100%, rgba(183,155,97,.14) 0%, transparent 55%),
+    linear-gradient(to bottom, #060d1c 0%, #0c1830 45%, #14263D 100%);
+}
+.arrival-water{
+  position:absolute;left:0;right:0;bottom:0;height:34%;
+  background:linear-gradient(to bottom, #101f38 0%, #0a1426 100%);
+}
+.arrival-water::before{ /* horizon light path on water */
+  content:'';position:absolute;left:50%;top:0;transform:translateX(-50%);
+  width:38%;height:100%;
+  background:linear-gradient(to bottom, rgba(183,155,97,.16), rgba(183,155,97,.02) 70%, transparent);
+  filter:blur(6px);
+}
+.ripple{
+  position:absolute;height:1px;left:50%;transform:translateX(-50%);
+  background:linear-gradient(to right, transparent, rgba(205,184,138,.35), transparent);
+  animation:rippleDrift 9s ease-in-out infinite;
+}
+@keyframes rippleDrift{
+  0%,100%{opacity:.15;width:24%}
+  50%{opacity:.5;width:34%}
+}
+.arrival-hills{ /* Black Mountain + tower silhouette */
+  position:absolute;left:0;right:0;bottom:33.5%;height:22vh;min-height:120px;
+  opacity:.85;
+}
+.arrival-hills svg{width:100%;height:100%;display:block}
+.arrival-text{
+  position:relative;z-index:5;text-align:center;max-width:880px;padding:0 32px;
+}
+.arrival-kicker{
+  font-size:11px;letter-spacing:.45em;text-transform:uppercase;
+  color:var(--gold-soft);margin-bottom:36px;
+  opacity:0;animation:fadeUp 2.2s ease .8s forwards;
+}
+.arrival-line{
+  font-family:var(--serif);font-weight:400;
+  font-size:clamp(34px,5.2vw,68px);line-height:1.18;
+  color:var(--ivory);
+}
+.arrival-line .w{
+  display:inline-block;opacity:0;transform:translateY(26px);
+  animation:fadeUp 1.6s cubic-bezier(.22,.7,.3,1) forwards;
+}
+.arrival-sub{
+  margin-top:42px;font-family:var(--serif);font-style:italic;
+  font-size:clamp(16px,1.6vw,20px);color:rgba(248,246,241,.55);
+  opacity:0;animation:fadeUp 2s ease 3.4s forwards;
+}
+@keyframes fadeUp{to{opacity:1;transform:none}}
+.scroll-cue{
+  position:absolute;bottom:38px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:14px;z-index:5;
+  opacity:0;animation:fadeUp 2s ease 4.2s forwards;
+}
+.scroll-cue span{font-size:9px;letter-spacing:.4em;text-transform:uppercase;color:rgba(248,246,241,.45)}
+.scroll-cue .line{width:1px;height:54px;background:linear-gradient(to bottom,var(--gold),transparent);animation:cueDrop 2.4s ease-in-out infinite}
+@keyframes cueDrop{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ============================================================
+   SCENE 2 — THE PLACE. The lake introduces itself.
+   ============================================================ */
+.scene-place{
+  position:relative;padding:24vh 0 22vh;overflow:hidden;
+  background:linear-gradient(to bottom,#14263D 0%,#1a2e49 55%,#21395a 100%);
+}
+.place-inner{max-width:1280px;margin:0 auto;padding:0 48px;position:relative}
+.place-coord{
+  font-size:10px;letter-spacing:.5em;text-transform:uppercase;
+  color:var(--gold-soft);margin-bottom:30px;
+}
+.place-line{
+  font-family:var(--serif);font-weight:400;
+  font-size:clamp(30px,4.4vw,58px);line-height:1.22;max-width:14em;
+}
+.place-line em{font-style:italic;color:var(--gold-soft)}
+.place-body{
+  margin-top:44px;max-width:430px;font-size:15px;line-height:2;
+  color:rgba(248,246,241,.66);margin-left:clamp(0px,22vw,420px);
+}
+.place-float{ /* drifting label, like an exhibition plaque */
+  position:absolute;right:48px;top:-6vh;text-align:right;
+  font-family:var(--serif);font-style:italic;font-size:15px;
+  color:rgba(248,246,241,.4);line-height:1.9;
+}
+
+/* ============================================================
+   SCENE 3 — THE REALITY. Editorial, ivory, asymmetric.
+   ============================================================ */
+.scene-reality{
+  position:relative;background:var(--ivory);color:var(--ink);
+  padding:20vh 0 18vh;overflow:hidden;
+}
+.reality-inner{max-width:1280px;margin:0 auto;padding:0 48px;position:relative}
+.reality-num{
+  position:absolute;top:-9vh;right:24px;
+  font-family:var(--serif);font-size:clamp(140px,22vw,300px);
+  color:rgba(20,38,61,.05);line-height:1;user-select:none;
+}
+.reality-kicker{font-size:10px;letter-spacing:.5em;text-transform:uppercase;color:var(--gold);margin-bottom:34px}
+.reality-line{
+  font-family:var(--serif);font-weight:500;
+  font-size:clamp(32px,4.8vw,62px);line-height:1.16;max-width:11.5em;color:var(--navy);
+}
+.reality-line .strike{position:relative;white-space:nowrap}
+.reality-cols{
+  display:grid;grid-template-columns:1fr 1fr;gap:80px;
+  margin-top:9vh;align-items:start;
+}
+.reality-cols .lead{
+  font-family:var(--serif);font-size:clamp(19px,2vw,24px);
+  line-height:1.7;color:var(--navy);font-style:italic;
+  border-left:1px solid var(--gold);padding-left:32px;
+}
+.reality-cols .copy{font-size:15px;line-height:2.1;color:var(--slate);max-width:46ch}
+.reality-cols .copy p+p{margin-top:1.6em}
+
+/* ============================================================
+   SCENE 4 — THE EXPERIENCE. A day in three movements.
+   Large imagery, editorial captions, overlapping layout.
+   ============================================================ */
+.scene-day{
+  position:relative;background:linear-gradient(to bottom,var(--ivory) 0%,#ece8df 100%);
+  color:var(--ink);padding:6vh 0 22vh;overflow:hidden;
+}
+.day-head{max-width:1280px;margin:0 auto 10vh;padding:0 48px}
+.day-head .k{font-size:10px;letter-spacing:.5em;text-transform:uppercase;color:var(--gold);margin-bottom:30px}
+.day-head h2{
+  font-family:var(--serif);font-weight:500;
+  font-size:clamp(30px,4.2vw,56px);line-height:1.2;color:var(--navy);max-width:13em;
+}
+.movement{
+  max-width:1280px;margin:0 auto;padding:0 48px;
+  display:grid;grid-template-columns:repeat(12,1fr);gap:0 24px;
+  align-items:center;margin-bottom:16vh;position:relative;
+}
+.movement:last-child{margin-bottom:0}
+.m-photo{
+  position:relative;height:clamp(380px,58vh,640px);overflow:hidden;
+  box-shadow:0 40px 80px -30px rgba(15,31,58,.35);
+}
+.m-photo .ph{position:absolute;inset:0;transition:transform 1.4s ease}
+.movement:hover .ph{transform:scale(1.04)}
+.m-photo .veil{position:absolute;inset:0;background:linear-gradient(to top,rgba(15,31,58,.35),transparent 45%)}
+.m-text{position:relative;z-index:3}
+.m-time{
+  font-family:var(--serif);font-style:italic;font-size:15px;color:var(--gold);
+  margin-bottom:22px;display:flex;align-items:center;gap:16px;
+}
+.m-time::before{content:'';width:44px;height:1px;background:var(--gold)}
+.m-text h3{
+  font-family:var(--serif);font-weight:500;
+  font-size:clamp(26px,3vw,40px);line-height:1.25;color:var(--navy);margin-bottom:24px;
+}
+.m-text p{font-size:14.5px;line-height:2;color:var(--slate);max-width:40ch}
+/* movement layouts — deliberately asymmetric, overlapping */
+.movement.m1 .m-photo{grid-column:1/8;grid-row:1}
+.movement.m1 .m-text{grid-column:8/13;grid-row:1;margin-left:-60px;background:var(--ivory);padding:52px 48px;box-shadow:0 30px 60px -30px rgba(15,31,58,.25)}
+.movement.m2 .m-photo{grid-column:6/13;grid-row:1}
+.movement.m2 .m-text{grid-column:1/6;grid-row:1;margin-right:-60px;z-index:3;background:var(--navy);color:var(--ivory);padding:52px 48px;box-shadow:0 30px 60px -30px rgba(15,31,58,.45)}
+.movement.m2 .m-text h3{color:var(--ivory)}
+.movement.m2 .m-text p{color:rgba(248,246,241,.7)}
+.movement.m3 .m-photo{grid-column:1/8;grid-row:1}
+.movement.m3 .m-text{grid-column:8/13;grid-row:1;margin-left:-60px;background:var(--ivory);padding:52px 48px;box-shadow:0 30px 60px -30px rgba(15,31,58,.25)}
+/* photo placeholder treatments — replace with real photography */
+.ph-water{background:
+  radial-gradient(ellipse 90% 60% at 50% 20%, rgba(205,184,138,.5) 0%, transparent 55%),
+  linear-gradient(to bottom,#7a8db0 0%,#3a517a 35%,#1d3354 70%,#14263D 100%)}
+.ph-table{background:
+  radial-gradient(ellipse 70% 80% at 30% 30%, rgba(205,184,138,.55) 0%, transparent 60%),
+  linear-gradient(135deg,#4A2E1F 0%,#2c1d14 60%,#1a120c 100%)}
+.ph-session{background:
+  radial-gradient(ellipse 80% 70% at 70% 25%, rgba(183,155,97,.35) 0%, transparent 55%),
+  linear-gradient(to bottom,#22395a 0%,#14263D 60%,#0F1F3A 100%)}
+
+/* ============================================================
+   SCENE 5 — THE SESSION. Dark room. Honest about substance.
+   ============================================================ */
+.scene-session{
+  position:relative;background:var(--ink);padding:22vh 0;overflow:hidden;
+}
+.scene-session::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 70% 60% at 80% 10%, rgba(183,155,97,.08), transparent 60%);
+}
+.session-inner{max-width:1080px;margin:0 auto;padding:0 48px;position:relative}
+.session-k{font-size:10px;letter-spacing:.5em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:34px}
+.session-line{
+  font-family:var(--serif);font-weight:400;
+  font-size:clamp(28px,4vw,52px);line-height:1.28;max-width:17em;
+}
+.session-line em{font-style:italic;color:var(--gold-soft)}
+.session-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:rgba(183,155,97,.18);margin-top:10vh;
+}
+.session-cell{background:var(--ink);padding:44px 36px 48px}
+.session-cell .n{font-family:var(--serif);font-style:italic;font-size:14px;color:var(--gold);margin-bottom:20px;display:block}
+.session-cell h4{font-family:var(--serif);font-weight:500;font-size:21px;line-height:1.4;margin-bottom:16px;color:var(--ivory)}
+.session-cell p{font-size:13.5px;line-height:1.95;color:rgba(248,246,241,.6)}
+.session-doc{
+  margin-top:10vh;display:flex;gap:56px;align-items:flex-start;
+  border-top:1px solid rgba(183,155,97,.2);padding-top:7vh;
+}
+.session-doc .l{flex:0 0 38%}
+.session-doc .l h4{font-family:var(--serif);font-weight:500;font-size:clamp(22px,2.4vw,30px);line-height:1.35;color:var(--ivory)}
+.session-doc .r{font-size:14px;line-height:2.05;color:rgba(248,246,241,.62);max-width:52ch}
+.session-doc .r p+p{margin-top:1.4em}
+.doc-list{list-style:none;margin-top:1.6em}
+.doc-list li{
+  display:flex;gap:18px;padding:13px 0;align-items:baseline;
+  border-bottom:1px solid rgba(248,246,241,.08);font-size:13.5px;color:rgba(248,246,241,.75);
+}
+.doc-list li span{font-family:var(--serif);font-style:italic;color:var(--gold);font-size:13px;min-width:24px}
+
+/* ============================================================
+   SCENE 6 — THE EXPERIENCES. Editorial index, not cards.
+   ============================================================ */
+.scene-tiers{background:var(--ivory);color:var(--ink);padding:20vh 0;position:relative}
+.tiers-inner{max-width:1180px;margin:0 auto;padding:0 48px}
+.tiers-k{font-size:10px;letter-spacing:.5em;text-transform:uppercase;color:var(--gold);margin-bottom:34px}
+.tiers-h{
+  font-family:var(--serif);font-weight:500;
+  font-size:clamp(30px,4.2vw,56px);line-height:1.2;color:var(--navy);max-width:12em;margin-bottom:11vh;
+}
+.tier{
+  display:grid;grid-template-columns:90px 1fr 1.1fr auto;gap:40px;
+  align-items:baseline;padding:54px 0;border-top:1px solid rgba(20,38,61,.14);
+  transition:background .4s ease;position:relative;
+}
+.tier:last-of-type{border-bottom:1px solid rgba(20,38,61,.14)}
+.tier:hover{background:rgba(183,155,97,.05)}
+.tier .idx{font-family:var(--serif);font-style:italic;font-size:18px;color:var(--gold)}
+.tier .name{font-family:var(--serif);font-weight:500;font-size:clamp(24px,2.6vw,34px);color:var(--navy)}
+.tier .name small{
+  display:block;font-family:var(--sans);font-weight:400;font-size:10.5px;
+  letter-spacing:.3em;text-transform:uppercase;color:var(--slate);margin-top:12px;
+}
+.tier .desc{font-size:14px;line-height:1.95;color:var(--slate);max-width:44ch}
+.tier .price{text-align:right;white-space:nowrap}
+.tier .price .from{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--slate);display:block;margin-bottom:8px}
+.tier .price .amt{font-family:var(--serif);font-size:clamp(24px,2.4vw,32px);color:var(--navy)}
+.tier .price .gst{font-size:11px;color:var(--slate);margin-left:6px}
+.tier .badge{
+  position:absolute;top:-1px;left:130px;
+  font-size:9px;letter-spacing:.34em;text-transform:uppercase;
+  background:var(--navy);color:var(--gold-soft);padding:7px 16px;
+}
+.tiers-note{
+  margin-top:8vh;font-family:var(--serif);font-style:italic;
+  font-size:16px;color:var(--slate);max-width:52ch;line-height:1.9;
+}
+
+/* ============================================================
+   SCENE 7 — DEPARTURE. Back to the water. One door out.
+   ============================================================ */
+.scene-close{
+  position:relative;min-height:92vh;display:flex;align-items:center;justify-content:center;
+  overflow:hidden;text-align:center;
+  background:
+    radial-gradient(ellipse 100% 60% at 50% 115%, rgba(183,155,97,.16), transparent 60%),
+    linear-gradient(to bottom,#0c1830 0%,#0F1F3A 50%,#091224 100%);
+}
+.close-inner{position:relative;z-index:4;padding:18vh 32px;max-width:840px}
+.close-k{font-size:10px;letter-spacing:.5em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:38px}
+.close-line{
+  font-family:var(--serif);font-weight:400;
+  font-size:clamp(30px,4.6vw,58px);line-height:1.24;color:var(--ivory);
+}
+.close-line em{font-style:italic;color:var(--gold-soft)}
+.close-sub{margin-top:34px;font-size:14px;line-height:2;color:rgba(248,246,241,.55);max-width:46ch;margin-left:auto;margin-right:auto}
+.close-cta{
+  display:inline-block;margin-top:60px;text-decoration:none;
+  font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--ink);
+  background:var(--gold);padding:20px 56px;transition:all .35s ease;
+}
+.close-cta:hover{background:var(--gold-soft);letter-spacing:.42em}
+.close-alt{display:block;margin-top:28px;font-family:var(--serif);font-style:italic;font-size:14px;color:rgba(248,246,241,.45)}
+.close-alt a{color:var(--gold-soft);text-decoration:none;border-bottom:1px solid rgba(183,155,97,.4)}
+
+/* ---------- footer ---------- */
+footer{
+  background:#081020;padding:64px 48px 48px;
+  display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap;
+}
+.f-left .mark{display:flex;align-items:center;gap:12px;margin-bottom:22px}
+.f-left .mark svg{width:28px;height:28px}
+.f-left .mark span{font-family:var(--serif);font-size:14px;letter-spacing:.18em;text-transform:uppercase;color:var(--ivory)}
+.f-left p{font-size:11.5px;line-height:1.9;color:rgba(248,246,241,.4);max-width:40ch}
+.f-right{display:flex;gap:48px;font-size:11px;letter-spacing:.18em;text-transform:uppercase}
+.f-right a{color:rgba(248,246,241,.5);text-decoration:none;transition:color .3s}
+.f-right a:hover{color:var(--gold-soft)}
+.f-legal{width:100%;margin-top:36px;padding-top:28px;border-top:1px solid rgba(248,246,241,.07);
+  font-size:10.5px;color:rgba(248,246,241,.3);letter-spacing:.06em;line-height:1.9}
+
+/* ---------- reveal-on-scroll ---------- */
+.reveal{opacity:0;transform:translateY(48px);transition:opacity 1.3s cubic-bezier(.2,.65,.3,1),transform 1.3s cubic-bezier(.2,.65,.3,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.15s}.reveal.d2{transition-delay:.3s}.reveal.d3{transition-delay:.45s}
+
+/* ---------- parallax layers ---------- */
+[data-plx]{will-change:transform}
+
+/* ---------- responsive ---------- */
+@media(max-width:980px){
+  nav{padding:20px 24px}
+  .nav-links a:not(.nav-enquire){display:none}
+  .place-inner,.reality-inner,.day-head,.session-inner,.tiers-inner{padding:0 26px}
+  .place-body{margin-left:0}
+  .place-float{display:none}
+  .reality-cols{grid-template-columns:1fr;gap:48px}
+  .movement{display:block;padding:0 26px;margin-bottom:12vh}
+  .m-photo{height:54vw;min-height:300px}
+  .movement .m-text{margin:-40px 20px 0!important;position:relative}
+  .session-grid{grid-template-columns:1fr}
+  .session-doc{flex-direction:column;gap:32px}
+  .tier{grid-template-columns:1fr;gap:20px;padding:44px 0}
+  .tier .price{text-align:left}
+  .tier .badge{left:0}
+  footer{padding:48px 26px 40px}
+}
+</style>
+</head>
+<body>
+
+<div class="grain"></div>
+
+<!-- ======================= NAV ======================= -->
+<nav id="nav">
+  <a class="nav-mark" href="#">
+    <svg viewBox="0 0 40 40" fill="none">
+      <circle cx="20" cy="20" r="18.5" stroke="#B79B61" stroke-width="1.4"/>
+      <path d="M8 22c4-2.6 8-2.6 12 0s8 2.6 12 0" stroke="#F8F6F1" stroke-width="1.4" stroke-linecap="round"/>
+      <path d="M11 27c3-1.9 6-1.9 9 0s6 1.9 9 0" stroke="#F8F6F1" stroke-width="1.2" stroke-linecap="round" opacity=".6"/>
+      <circle cx="20" cy="13" r="3.2" fill="#B79B61"/>
+    </svg>
+    <span>Lakeside Leadership</span>
+  </a>
+  <div class="nav-links">
+    <a href="#experience">The Experience</a>
+    <a href="#session">The Session</a>
+    <a href="#experiences">Experiences</a>
+    <a href="#enquire" class="nav-enquire">Enquire</a>
+  </div>
+</nav>
+
+<!-- ======================= SCENE 1 · ARRIVAL ======================= -->
+<header class="scene-arrival">
+  <div class="arrival-sky" data-plx="0.18"></div>
+  <div class="arrival-hills" data-plx="0.1">
+    <!-- Black Mountain + Telstra Tower silhouette -->
+    <svg viewBox="0 0 1440 160" preserveAspectRatio="none" fill="none">
+      <path d="M0 160 L0 120 Q180 92 340 104 Q520 70 700 96 L820 96 L823 30 L827 30 L828 18 L832 18 L833 30 L837 30 L840 96 Q1040 68 1200 100 Q1330 88 1440 110 L1440 160 Z" fill="#060d1c"/>
+      <path d="M0 160 L0 140 Q260 118 520 132 Q860 110 1140 130 Q1320 120 1440 134 L1440 160 Z" fill="#04091466"/>
+    </svg>
+  </div>
+  <div class="arrival-water">
+    <div class="ripple" style="top:22%;animation-delay:0s"></div>
+    <div class="ripple" style="top:40%;animation-delay:2.8s"></div>
+    <div class="ripple" style="top:61%;animation-delay:5.4s"></div>
+  </div>
+  <div class="arrival-text">
+    <p class="arrival-kicker">Canberra · Lake Burley Griffin</p>
+    <h1 class="arrival-line">
+      <span class="w" style="animation-delay:1.2s">Some&nbsp;of&nbsp;the&nbsp;most</span>
+      <span class="w" style="animation-delay:1.5s">important&nbsp;work</span><br>
+      <span class="w" style="animation-delay:1.9s"><em>doesn’t&nbsp;feel&nbsp;like&nbsp;work.</em></span>
+    </h1>
+    <p class="arrival-sub">A day on the water that your team will remember.</p>
+  </div>
+  <div class="scroll-cue"><span>Begin</span><div class="line"></div></div>
+</header>
+
+<!-- ======================= SCENE 2 · THE PLACE ======================= -->
+<section class="scene-place">
+  <div class="place-inner">
+    <p class="place-float reveal">35.2926° S, 149.1188° E<br>Eight kilometres of still water,<br>in the middle of the capital.</p>
+    <p class="place-coord reveal">The Place</p>
+    <h2 class="place-line reveal d1">There is a version of your team that only shows up <em>away from the desk.</em></h2>
+    <p class="place-body reveal d2">
+      Lake Burley Griffin sits at the centre of Canberra and somehow outside of it.
+      On the water, the hierarchy flattens. Conversations happen that wouldn’t
+      happen in a meeting room — and that, deliberately, is the point.
+    </p>
+  </div>
+</section>
+
+<!-- ======================= SCENE 3 · THE REALITY ======================= -->
+<section class="scene-reality">
+  <div class="reality-inner">
+    <div class="reality-num">01</div>
+    <p class="reality-kicker reveal">The Reality</p>
+    <h2 class="reality-line reveal d1">Managers aren’t short on ideas.<br>They’re short on time.</h2>
+    <div class="reality-cols">
+      <p class="lead reveal d1">
+        You have a team that deserves more than another meeting room and a slide pack.
+        What you don’t have is a spare week to organise boats, food, venues and facilitation.
+      </p>
+      <div class="copy reveal d2">
+        <p>So that becomes our job, not yours. One discovery call, twenty minutes.
+        We confirm your team’s size, what you want the day to do, and a date.
+        From there we arrange everything — the boats, the catering, the venue,
+        the facilitator — and hand you a single confirmed itinerary.</p>
+        <p>Your only task is to show up with your team.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= SCENE 4 · THE EXPERIENCE ======================= -->
+<section class="scene-day" id="experience">
+  <div class="day-head">
+    <p class="k reveal">The Experience</p>
+    <h2 class="reveal d1">One day. Three movements.</h2>
+  </div>
+
+  <!-- replace .ph divs with real photography: see HTML comments -->
+  <div class="movement m1">
+    <div class="m-photo reveal">
+      <!-- PHOTO: team on chartered boat, golden hour, Black Mountain behind -->
+      <div class="ph ph-water"></div><div class="veil"></div>
+    </div>
+    <div class="m-text reveal d2">
+      <p class="m-time">Morning — on the water</p>
+      <h3>The lake does the icebreaking.</h3>
+      <p>Your team boards at the jetty and the work day falls away behind them.
+      Time on the water is unstructured by design — the conversations that
+      surface here are the raw material for the afternoon.</p>
+    </div>
+  </div>
+
+  <div class="movement m2">
+    <div class="m-photo reveal">
+      <!-- PHOTO: long lakeside table, catered lunch, natural light -->
+      <div class="ph ph-table"></div><div class="veil"></div>
+    </div>
+    <div class="m-text reveal d2">
+      <p class="m-time">Midday — at the table</p>
+      <h3>Good food. Better conversations.</h3>
+      <p>A properly catered lunch at a lakeside venue — not sandwiches in a
+      breakout room. Shared tables, no assigned seating, and enough time
+      for people to actually talk.</p>
+    </div>
+  </div>
+
+  <div class="movement m3">
+    <div class="m-photo reveal">
+      <!-- PHOTO: facilitated session, function room, engaged team -->
+      <div class="ph ph-session"></div><div class="veil"></div>
+    </div>
+    <div class="m-text reveal d2">
+      <p class="m-time">Afternoon — in the room</p>
+      <h3>A session worth the room’s time.</h3>
+      <p>A facilitated working session that builds on the morning — how this
+      specific team communicates, where it holds together under pressure,
+      and what it agrees to do differently. Practical, not performative.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= SCENE 5 · THE SESSION ======================= -->
+<section class="scene-session" id="session">
+  <div class="session-inner">
+    <p class="session-k reveal">The Session</p>
+    <h2 class="session-line reveal d1">The afternoon isn’t an afterthought. It’s where the day becomes <em>development.</em></h2>
+
+    <div class="session-grid">
+      <div class="session-cell reveal d1">
+        <span class="n">i.</span>
+        <h4>Psychological safety, in practice</h4>
+        <p>Not the buzzword — the mechanics. What makes people in this team
+        speak up, stay quiet, or check out, and what the team agrees to change.</p>
+      </div>
+      <div class="session-cell reveal d2">
+        <span class="n">ii.</span>
+        <h4>Communication under pressure</h4>
+        <p>How the team behaves when deadlines compress. Built from the morning’s
+        observations, not a generic deck.</p>
+      </div>
+      <div class="session-cell reveal d3">
+        <span class="n">iii.</span>
+        <h4>Commitments, written down</h4>
+        <p>The session ends with specific, team-authored commitments — captured
+        in the facilitator summary you receive that evening.</p>
+      </div>
+    </div>
+
+    <div class="session-doc">
+      <div class="l reveal">
+        <h4>Fully arranged.<br>Fully documented.</h4>
+      </div>
+      <div class="r reveal d2">
+        <p>Every engagement closes with a complete record of the day, delivered
+        same-day. Clean paperwork for your records, prepared by us so it’s
+        one less thing on your desk.</p>
+        <ul class="doc-list">
+          <li><span>i.</span>Tax invoice</li>
+          <li><span>ii.</span>Attendance register</li>
+          <li><span>iii.</span>Facilitator summary — what the session covered and the commitments made</li>
+          <li><span>iv.</span>Itinerary and supplier record</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= SCENE 6 · EXPERIENCES ======================= -->
+<section class="scene-tiers" id="experiences">
+  <div class="tiers-inner">
+    <p class="tiers-k reveal">The Experiences</p>
+    <h2 class="tiers-h reveal d1">Three ways through the day.</h2>
+
+    <div class="tier reveal">
+      <span class="idx">01</span>
+      <div class="name">Foundation<small>Half day · up to 12</small></div>
+      <p class="desc">A morning on the lake, catered lunch, and a focused
+      90-minute facilitated session. The essential experience.</p>
+      <div class="price"><span class="from">From</span><span class="amt">$2,850</span><span class="gst">+ GST</span></div>
+    </div>
+
+    <div class="tier reveal d1">
+      <span class="badge">Most chosen</span>
+      <span class="idx">02</span>
+      <div class="name">Elevate<small>Half day + · up to 12</small></div>
+      <p class="desc">The Foundation experience with premium catering, a dedicated
+      facilitator for the full day, and an extended afternoon session.</p>
+      <div class="price"><span class="from">From</span><span class="amt">$4,950</span><span class="gst">+ GST</span></div>
+    </div>
+
+    <div class="tier reveal d2">
+      <span class="idx">03</span>
+      <div class="name">Transform<small>Full day · up to 15</small></div>
+      <p class="desc">Chartered boat with skipper, executive-standard venue,
+      premium catering throughout, and a full-day facilitation arc.</p>
+      <div class="price"><span class="from">From</span><span class="amt">$7,950</span><span class="gst">+ GST</span></div>
+    </div>
+
+    <p class="tiers-note reveal">
+      Larger team? Additional guests beyond the included group are welcome —
+      we’ll quote precisely on your discovery call. Weekday mornings book best.
+    </p>
+  </div>
+</section>
+
+<!-- ======================= SCENE 7 · DEPARTURE ======================= -->
+<section class="scene-close" id="enquire">
+  <div class="close-inner">
+    <p class="close-k reveal">Begin</p>
+    <h2 class="close-line reveal d1">Twenty minutes is all it takes <em>to plan the whole day.</em></h2>
+    <p class="close-sub reveal d2">
+      A short discovery call. We confirm your team, your goals and your date —
+      then we take it from there.
+    </p>
+    <a class="close-cta reveal d2" href="mailto:hello@lakesideleadership.com.au?subject=Discovery%20call%20enquiry">Book a discovery call</a>
+    <span class="close-alt reveal d3">or write to us — <a href="mailto:hello@lakesideleadership.com.au">hello@lakesideleadership.com.au</a></span>
+  </div>
+</section>
+
+<!-- ======================= FOOTER ======================= -->
+<footer>
+  <div class="f-left">
+    <div class="mark">
+      <svg viewBox="0 0 40 40" fill="none">
+        <circle cx="20" cy="20" r="18.5" stroke="#B79B61" stroke-width="1.4"/>
+        <path d="M8 22c4-2.6 8-2.6 12 0s8 2.6 12 0" stroke="#F8F6F1" stroke-width="1.4" stroke-linecap="round"/>
+        <circle cx="20" cy="13" r="3.2" fill="#B79B61"/>
+      </svg>
+      <span>Lakeside Leadership</span>
+    </div>
+    <p>Facilitated team experiences on Lake Burley Griffin, Canberra.
+    Fully arranged, fully documented.</p>
+  </div>
+  <div class="f-right">
+    <a href="#experience">Experience</a>
+    <a href="#experiences">Experiences</a>
+    <a href="#">Privacy</a>
+    <a href="#">Terms</a>
+  </div>
+  <div class="f-legal">
+    Lakeside Leadership Corporate Experiences · ABN 96 697 140 877 · Canberra ACT<br>
+    © 2026 Lakeside Leadership. All rights reserved.
+  </div>
+</footer>
+
+<script>
+/* ---------- nav: appear after arrival scene begins to leave ---------- */
+const nav=document.getElementById('nav');
+setTimeout(()=>nav.classList.add('visible'),2600);
+addEventListener('scroll',()=>{
+  nav.classList.toggle('scrolled',scrollY>40);
+},{passive:true});
+
+/* ---------- reveal on scroll ---------- */
+const io=new IntersectionObserver(es=>{
+  es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+},{threshold:.18,rootMargin:'0px 0px -6% 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ---------- gentle parallax ---------- */
+const plx=[...document.querySelectorAll('[data-plx]')];
+let ticking=false;
+function onScroll(){
+  if(ticking)return;ticking=true;
+  requestAnimationFrame(()=>{
+    const y=scrollY;
+    plx.forEach(el=>{
+      el.style.transform=`translateY(${y*parseFloat(el.dataset.plx)}px)`;
+    });
+    ticking=false;
+  });
+}
+addEventListener('scroll',onScroll,{passive:true});
+
+/* ---------- subtle mouse drift on arrival scene ---------- */
+const arrival=document.querySelector('.arrival-text');
+addEventListener('mousemove',e=>{
+  if(scrollY>innerHeight)return;
+  const dx=(e.clientX/innerWidth-.5)*10,dy=(e.clientY/innerHeight-.5)*6;
+  arrival.style.transform=`translate(${dx}px,${dy}px)`;
+});
+</script>
+</body>
+</html>
