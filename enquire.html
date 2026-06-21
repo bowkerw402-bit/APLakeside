@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Enquire — APLakeside Services</title>
+<title>Inquire — APLakeside Services</title>
 <meta name="description" content="Book a 20-minute discovery call for your team experience on Lake Burley Griffin.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,13 +22,13 @@
   <div class="nav-links">
     <a href="experiences.html">Experiences</a>
     <a href="how-it-works.html">How It Works</a>
-    <a href="enquire.html" class="nav-enquire">Enquire</a>
+    <a href="enquire.html" class="nav-enquire">Inquire</a>
   </div>
 </nav>
 
 <header class="page-hero">
   <div class="ph-inner">
-    <p class="k">Enquire</p>
+    <p class="k">Inquire</p>
     <h1>Begin with <em>a conversation.</em></h1>
     <p class="sub">Tell us a little about your team. We'll reply within one business day
     to arrange a twenty-minute discovery call.</p>
@@ -118,7 +118,7 @@
   <div class="f-right">
     <a href="experiences.html">Experiences</a>
     <a href="how-it-works.html">How It Works</a>
-    <a href="enquire.html">Enquire</a>
+    <a href="enquire.html">Inquire</a>
     <a href="privacy-policy.html">Privacy Policy</a>
     <a href="terms-and-conditions.html">Terms</a>
   </div>
@@ -127,4 +127,8 @@
 
 <script>
 // pre-select experience from ?experience= query param
-const p=new URLSearchParams(location.search).get('experi
+const p=new URLSearchParams(location.search).get('experience');
+if(p){const s=document.getElementById('experience');if(s)s.value=p;}
+</script>
+</body>
+</html>

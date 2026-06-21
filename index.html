@@ -28,7 +28,7 @@
   <div class="nav-links">
     <a href="experiences.html">Experiences</a>
     <a href="how-it-works.html">How It Works</a>
-    <a href="enquire.html" class="nav-enquire">Enquire</a>
+    <a href="enquire.html" class="nav-enquire">Inquire</a>
   </div>
 </nav>
 
@@ -262,7 +262,7 @@
   <div class="f-right">
     <a href="experiences.html">Experiences</a>
     <a href="how-it-works.html">How It Works</a>
-    <a href="enquire.html">Enquire</a>
+    <a href="enquire.html">Inquire</a>
     <a href="privacy-policy.html">Privacy Policy</a>
     <a href="terms-and-conditions.html">Terms</a>
   </div>
@@ -305,4 +305,9 @@ addEventListener('scroll',onScroll,{passive:true});
 const arrival=document.querySelector('.arrival-text');
 addEventListener('mousemove',e=>{
   if(scrollY>innerHeight)return;
-  const dx=(e.clientX/innerWidth-.5)*10,dy=(e.clientY/in
+  const dx=(e.clientX/innerWidth-.5)*10,dy=(e.clientY/innerHeight-.5)*6;
+  arrival.style.transform=`translate(${dx}px,${dy}px)`;
+});
+</script>
+</body>
+</html>
