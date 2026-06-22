@@ -27,6 +27,7 @@ body{
   -webkit-font-smoothing:antialiased;
 }
 ::selection{background:var(--gold);color:var(--ink)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;padding:0;margin:0;border:0}
 
 /* ---------- grain overlay (whole site) ---------- */
 .grain{
@@ -341,7 +342,7 @@ nav.scrolled .nav-mark svg path[stroke="#F8F6F1"]{stroke:#0F1F3A}
     linear-gradient(to bottom,#0c1830 0%,#0F1F3A 50%,#091224 100%);
 }
 .close-inner{position:relative;z-index:4;padding:18vh 32px;max-width:840px}
-.close-k{font-size:10px;letter-spacing:.5em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:38px}
+.close-k{font-size:10px;letter-spacing:.5em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:38px;display:flex;align-items:center;justify-content:center}
 .close-line{
   font-family:var(--serif);font-weight:400;
   font-size:clamp(30px,4.6vw,58px);line-height:1.24;color:var(--ivory);
