@@ -43,9 +43,12 @@ nav{
   transition:opacity .9s ease,transform .9s ease,background .5s ease;
 }
 nav.visible{opacity:1;transform:none}
-nav.scrolled{background:linear-gradient(to bottom,rgba(15,31,58,.92),rgba(15,31,58,0));backdrop-filter:blur(2px)}
+nav.scrolled{background:linear-gradient(to bottom,rgba(248,246,241,.96),rgba(248,246,241,.88));backdrop-filter:blur(2px)}
 .nav-mark{display:flex;align-items:center;gap:14px;text-decoration:none}
 .nav-mark svg{width:34px;height:34px}
+nav.scrolled .nav-mark span{color:#0F1F3A}
+nav.scrolled .nav-links a:not(.nav-enquire){color:rgba(15,31,58,.72)}
+nav.scrolled .nav-mark svg path[stroke="#F8F6F1"]{stroke:#0F1F3A}
 .nav-mark span{
   font-family:var(--serif);font-size:17px;letter-spacing:.18em;
   text-transform:uppercase;color:var(--ivory);font-weight:500;
@@ -59,7 +62,7 @@ nav.scrolled{background:linear-gradient(to bottom,rgba(15,31,58,.92),rgba(15,31,
 .nav-links a:hover{color:var(--gold-soft)}
 .nav-enquire{
   border:1px solid rgba(183,155,97,.6)!important;color:var(--gold-soft)!important;
-  padding:11px 26px;transition:all .3s!important;
+  padding:14px 26px;min-height:44px;display:inline-flex;align-items:center;transition:all .3s!important;
 }
 .nav-enquire:hover{background:var(--gold);color:var(--ink)!important;border-color:var(--gold)!important}
 
@@ -68,7 +71,7 @@ nav.scrolled{background:linear-gradient(to bottom,rgba(15,31,58,.92),rgba(15,31,
    No logo dominance. No CTA. No explanation.
    ============================================================ */
 .scene-arrival{
-  position:relative;height:100vh;min-height:680px;
+  position:relative;height:100vh;height:100dvh;min-height:680px;
   display:flex;align-items:center;justify-content:center;
   overflow:hidden;
 }
@@ -128,12 +131,10 @@ nav.scrolled{background:linear-gradient(to bottom,rgba(15,31,58,.92),rgba(15,31,
 @keyframes fadeUp{to{opacity:1;transform:none}}
 .scroll-cue{
   position:absolute;bottom:38px;left:50%;transform:translateX(-50%);
-  display:flex;flex-direction:column;align-items:center;gap:14px;z-index:5;
-  opacity:0;animation:fadeUp 2s ease 4.2s forwards;
+  display:flex;align-items:center;justify-content:center;z-index:5;
+  opacity:0;animation:fadeUp 2s ease 4.2s forwards,cueBob 2.2s ease-in-out 4.2s infinite;
 }
-.scroll-cue span{font-size:9px;letter-spacing:.4em;text-transform:uppercase;color:rgba(248,246,241,.45)}
-.scroll-cue .line{width:1px;height:54px;background:linear-gradient(to bottom,var(--gold),transparent);animation:cueDrop 2.4s ease-in-out infinite}
-@keyframes cueDrop{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+@keyframes cueBob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,8px)}}
 
 /* ============================================================
    SCENE 2 — THE PLACE. The lake introduces itself.
@@ -199,7 +200,7 @@ nav.scrolled{background:linear-gradient(to bottom,rgba(15,31,58,.92),rgba(15,31,
    ============================================================ */
 .scene-day{
   position:relative;background:linear-gradient(to bottom,var(--ivory) 0%,#ece8df 100%);
-  color:var(--ink);padding:6vh 0 22vh;overflow:hidden;
+  color:var(--ink);padding:6vh 0 11vh;overflow:hidden;
 }
 .day-head{max-width:1280px;margin:0 auto 10vh;padding:0 48px}
 .day-head .k{font-size:10px;letter-spacing:.5em;text-transform:uppercase;color:var(--gold);margin-bottom:30px}
@@ -210,11 +211,11 @@ nav.scrolled{background:linear-gradient(to bottom,rgba(15,31,58,.92),rgba(15,31,
 .movement{
   max-width:1280px;margin:0 auto;padding:0 48px;
   display:grid;grid-template-columns:repeat(12,1fr);gap:0 24px;
-  align-items:center;margin-bottom:16vh;position:relative;
+  align-items:center;margin-bottom:9vh;position:relative;
 }
 .movement:last-child{margin-bottom:0}
 .m-photo{
-  position:relative;height:clamp(380px,58vh,640px);overflow:hidden;
+  position:relative;height:clamp(300px,40vh,440px);overflow:hidden;
   box-shadow:0 40px 80px -30px rgba(15,31,58,.35);
 }
 .m-photo .ph{position:absolute;inset:0;transition:transform 1.4s ease}
@@ -364,12 +365,12 @@ footer{
 .f-left .mark{display:flex;align-items:center;gap:12px;margin-bottom:22px}
 .f-left .mark svg{width:28px;height:28px}
 .f-left .mark span{font-family:var(--serif);font-size:14px;letter-spacing:.18em;text-transform:uppercase;color:var(--ivory)}
-.f-left p{font-size:11.5px;line-height:1.9;color:rgba(248,246,241,.4);max-width:40ch}
+.f-left p{font-size:11.5px;line-height:1.9;color:rgba(248,246,241,.62);max-width:40ch}
 .f-right{display:flex;gap:48px;font-size:11px;letter-spacing:.18em;text-transform:uppercase}
 .f-right a{color:rgba(248,246,241,.5);text-decoration:none;transition:color .3s}
 .f-right a:hover{color:var(--gold-soft)}
 .f-legal{width:100%;margin-top:36px;padding-top:28px;border-top:1px solid rgba(248,246,241,.07);
-  font-size:10.5px;color:rgba(248,246,241,.3);letter-spacing:.06em;line-height:1.9}
+  font-size:10.5px;color:rgba(248,246,241,.62);letter-spacing:.06em;line-height:1.9}
 
 /* ---------- reveal-on-scroll ---------- */
 .reveal{opacity:0;transform:translateY(48px);transition:opacity 1.3s cubic-bezier(.2,.65,.3,1),transform 1.3s cubic-bezier(.2,.65,.3,1)}
@@ -379,6 +380,54 @@ footer{
 /* ---------- parallax layers ---------- */
 [data-plx]{will-change:transform}
 
+/* ---------- accessibility: focus & motion ---------- */
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{
+  outline:2px solid var(--gold);outline-offset:3px;border-radius:1px;
+}
+.nav-enquire:focus-visible,.t-cta:focus-visible,.close-cta:focus-visible,.enq-submit:focus-visible{
+  outline-offset:4px;
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.01ms!important;animation-iteration-count:1!important;
+    transition-duration:.01ms!important;scroll-behavior:auto!important;
+  }
+  .ripple{animation:none!important;opacity:.3}
+  [data-plx]{transform:none!important}
+}
+
+/* ---------- package timeline (overview, before drill-down) ---------- */
+.pkg-timeline{margin-bottom:9vh}
+.pkg-timeline-row{
+  display:flex;align-items:flex-start;justify-content:space-between;
+  position:relative;gap:0;
+}
+.pkg-timeline-row::before{
+  content:'';position:absolute;top:14px;left:7%;right:7%;height:1px;
+  background:rgba(20,38,61,.16);z-index:0;
+}
+.pkg-step{
+  position:relative;z-index:1;flex:1;text-align:center;padding:0 18px;
+  text-decoration:none;display:block;
+}
+.pkg-step .dot{
+  width:28px;height:28px;border-radius:50%;margin:0 auto 22px;
+  background:var(--ivory);border:1.5px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-style:italic;font-size:13px;color:var(--gold);
+  transition:background .3s,color .3s;
+}
+.pkg-step:hover .dot,.pkg-step:focus-visible .dot{background:var(--gold);color:var(--ink)}
+.pkg-step .pn{font-family:var(--serif);font-weight:500;font-size:19px;color:var(--navy);margin-bottom:6px}
+.pkg-step .pt{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--slate);margin-bottom:10px}
+.pkg-step .pp{font-family:var(--serif);font-style:italic;font-size:14px;color:var(--gold)}
+@media(max-width:980px){
+  .pkg-timeline-row{flex-direction:column;gap:30px}
+  .pkg-timeline-row::before{display:none}
+  .pkg-step{display:flex;align-items:center;gap:18px;text-align:left;padding:0}
+  .pkg-step .dot{margin:0;flex-shrink:0}
+}
+
 /* ---------- responsive ---------- */
 @media(max-width:980px){
   nav{padding:20px 24px}
@@ -387,8 +436,8 @@ footer{
   .place-body{margin-left:0}
   .place-float{display:none}
   .reality-cols{grid-template-columns:1fr;gap:48px}
-  .movement{display:block;padding:0 26px;margin-bottom:12vh}
-  .m-photo{height:54vw;min-height:300px}
+  .movement{display:block;padding:0 26px;margin-bottom:8vh}
+  .m-photo{height:54vw;min-height:240px;max-height:380px}
   .movement .m-text{margin:-40px 20px 0!important;position:relative}
   .session-grid{grid-template-columns:1fr}
   .session-doc{flex-direction:column;gap:32px}
