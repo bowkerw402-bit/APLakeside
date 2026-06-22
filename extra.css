@@ -39,6 +39,72 @@
 .t-cta{display:inline-block;margin-top:36px;text-decoration:none;font-size:10.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--navy);border:1px solid var(--gold);padding:15px 36px;transition:all .3s}
 .t-cta:hover{background:var(--gold);color:var(--ink)}
 
+/* structured spec blocks: Target Objective / Logistics / Output / Architecture / Procurement & Deliverables Pack */
+.spec-block{margin-bottom:30px}
+.spec-block:last-child{margin-bottom:0}
+.spec-h{
+  font-family:var(--sans);font-size:10.5px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:12px;
+}
+.spec-intro{font-size:14.5px;line-height:1.85;color:var(--ink);margin-bottom:10px}
+.spec-list{list-style:none;margin:0}
+.spec-list li{
+  display:flex;gap:14px;padding:10px 0;border-bottom:1px solid rgba(20,38,61,.08);
+  font-size:14px;line-height:1.75;color:var(--ink);align-items:baseline;
+}
+.spec-list li:last-child{border-bottom:none}
+.spec-list li span{font-family:var(--serif);font-style:italic;color:var(--gold);font-size:13px;min-width:22px}
+.spec-list .spec-sub{list-style:none;margin:8px 0 4px 36px}
+.spec-list .spec-sub li{padding:6px 0;border-bottom:none;font-size:13.5px;color:var(--slate)}
+.spec-list .spec-sub li span{color:var(--slate);min-width:18px}
+
+/* tier comparison table */
+.compare-wrap{margin:9vh 0;overflow-x:auto}
+.compare-table{width:100%;border-collapse:collapse;min-width:680px;font-size:13.5px}
+.compare-table caption{
+  text-align:left;font-size:10px;letter-spacing:.5em;text-transform:uppercase;color:var(--gold);
+  margin-bottom:22px;font-weight:600;
+}
+.compare-table th,.compare-table td{padding:16px 20px;border-bottom:1px solid rgba(20,38,61,.1);text-align:left;vertical-align:middle}
+.compare-table thead th{
+  font-family:var(--serif);font-weight:500;font-size:18px;color:var(--navy);
+  border-bottom:2px solid var(--navy);background:rgba(20,38,61,.02);
+}
+.compare-table thead th:first-child{background:transparent;border-bottom:2px solid transparent}
+.compare-table thead .ct-badge{display:block;font-family:var(--sans);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-top:6px;font-weight:600}
+.compare-table tbody th{font-size:13px;color:var(--slate);font-weight:500;white-space:nowrap}
+.compare-table td.yes,.compare-table td.dash{text-align:center;font-family:var(--serif);font-size:16px;color:var(--navy)}
+.compare-table td.dash{color:rgba(20,38,61,.25)}
+.compare-table tbody tr:nth-child(even) td,.compare-table tbody tr:nth-child(even) th{background:rgba(20,38,61,.018)}
+.compare-table tfoot td{border-bottom:none;padding-top:22px}
+.compare-table .ct-price{font-family:var(--serif);font-size:22px;color:var(--navy)}
+.compare-table .ct-price small{font-family:var(--sans);font-size:10.5px;color:var(--slate);display:block;margin-top:4px;font-weight:400;letter-spacing:.05em}
+@media(max-width:980px){
+  .compare-table{font-size:12.5px}
+  .compare-table th,.compare-table td{padding:12px 14px}
+}
+
+/* procurement & compliance summary band */
+.compliance-band{background:var(--navy);padding:7vh 32px}
+.compliance-inner{max-width:1180px;margin:0 auto}
+.compliance-k{
+  text-align:center;font-size:10px;letter-spacing:.42em;text-transform:uppercase;
+  color:var(--gold-soft);margin-bottom:36px;
+}
+.compliance-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(248,246,241,.12)}
+.cc{
+  background:var(--navy);padding:30px 28px;display:flex;align-items:flex-start;gap:16px;
+}
+.cc-i{flex-shrink:0;margin-top:1px}
+.cc-t{font-size:13.5px;line-height:1.7;color:rgba(248,246,241,.78)}
+.cc-t strong{color:var(--ivory);font-weight:600;letter-spacing:.02em}
+@media(max-width:980px){
+  .compliance-grid{grid-template-columns:1fr}
+}
+
+/* customer journey timeline (dark section reuse of pkg-timeline) */
+.journey-wrap{margin-bottom:8vh}
+
 /* steps */
 .step{display:grid;grid-template-columns:140px 1fr;gap:56px;padding:64px 0;border-top:1px solid rgba(248,246,241,.1);align-items:start}
 .step:first-of-type{border-top:none}
