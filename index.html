@@ -15,7 +15,7 @@
 <div class="grain"></div>
 
 <!-- ======================= NAV ======================= -->
-<nav id="nav">
+<nav id="nav" class="scrolled">
   <a class="nav-mark" href="#">
     <svg viewBox="0 0 40 40" fill="none">
       <circle cx="20" cy="20" r="18.5" stroke="#B79B61" stroke-width="1.4"/>
@@ -36,6 +36,7 @@
 <header class="scene-arrival">
   <div class="arrival-sky" data-plx="0.18"></div>
   <div class="arrival-hills" data-plx="0.1">
+    <!-- Black Mountain + Telstra Tower silhouette -->
     <svg viewBox="0 0 1440 160" preserveAspectRatio="none" fill="none">
       <path d="M0 160 L0 120 Q180 92 340 104 Q520 70 700 96 L820 96 L823 30 L827 30 L828 18 L832 18 L833 30 L837 30 L840 96 Q1040 68 1200 100 Q1330 88 1440 110 L1440 160 Z" fill="#060d1c"/>
       <path d="M0 160 L0 140 Q260 118 520 132 Q860 110 1140 130 Q1320 120 1440 134 L1440 160 Z" fill="#04091466"/>
@@ -103,25 +104,51 @@
     <h2 class="reveal d1">One day. Three movements.</h2>
   </div>
 
-  <div class="movement m1">
-    <div class="m-photo reveal">
-      <div class="ph ph-water" style="background-image:url('photos/lake-balloons.jpg');background-size:cover;background-position:center"></div><div class="veil"></div>
-    </div>
-    <div class="m-text reveal d2">
-      <p class="m-time">Morning — on the water</p>
-      <h3>The lake does the icebreaking.</h3>
-      <p>Your team boards at the jetty and the work day falls away behind them.
-      This is deliberately open, unstructured time — the conversations that
-      surface here are the raw material for the afternoon.</p>
+  <div class="day-head" style="margin-bottom:7vh">
+    <div class="pkg-timeline reveal in" style="margin-bottom:0">
+      <div class="pkg-timeline-row">
+        <div class="pkg-step">
+          <span class="dot">i.</span>
+          <span class="pn">On the Water</span>
+          <span class="pt">09:00</span>
+        </div>
+        <div class="pkg-step">
+          <span class="dot">ii.</span>
+          <span class="pn">Lakeside Lunch</span>
+          <span class="pt">12:30</span>
+        </div>
+        <div class="pkg-step">
+          <span class="dot">iii.</span>
+          <span class="pn">Facilitated Session</span>
+          <span class="pt">14:00</span>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="movement m2">
+  <!-- replace .ph divs with real photography: see HTML comments -->
+  <div class="movement m1" id="m1">
     <div class="m-photo reveal">
+      <!-- PHOTO: hot air balloons over Lake Burley Griffin at golden hour -->
+      <div class="ph ph-water" style="background-image:url('photos/lake-balloons.jpg');background-size:cover;background-position:center"></div><div class="veil"></div>
+    </div>
+    <div class="m-text reveal d2">
+      <p class="m-time">09:00 — on the water</p>
+      <h3>The lake does the icebreaking.</h3>
+      <p>Your team boards at the jetty and the work day falls away behind them.
+      This is a deliberately open <strong>Environmental Welfare</strong> period —
+      unstructured time on the water. The conversations that surface here are
+      the raw material for the afternoon.</p>
+    </div>
+  </div>
+
+  <div class="movement m2" id="m2">
+    <div class="m-photo reveal">
+      <!-- PHOTO: National Carillon, Lake Burley Griffin (placeholder — swap for real catered-lunch shot when available) -->
       <div class="ph ph-table" style="background-image:url('photos/lake-carillon.jpg');background-size:cover;background-position:center"></div><div class="veil"></div>
     </div>
     <div class="m-text reveal d2">
-      <p class="m-time">Midday — at the table</p>
+      <p class="m-time">12:30 — at the table</p>
       <h3>Good food. Better conversations.</h3>
       <p>A properly catered lunch at a lakeside venue — not sandwiches in a
       breakout room. Shared tables, no assigned seating, and enough time
@@ -129,13 +156,14 @@
     </div>
   </div>
 
-  <div class="movement m3">
+  <div class="movement m3" id="m3">
     <div class="m-photo reveal">
+      <!-- PHOTO: facilitated session, function room, engaged team -->
       <div class="ph ph-session" style="background-image:url('photos/session-room-1.jpg');background-size:cover;background-position:center 78%"></div><div class="veil"></div>
     </div>
     <div class="m-text reveal d2">
-      <p class="m-time">Afternoon — in the room</p>
-      <h3>A facilitated debrief worth the room's time.</h3>
+      <p class="m-time">14:00 — in the room</p>
+      <h3>A facilitated <strong>Team Reflection Session</strong> worth the room's time.</h3>
       <p>A facilitated working session that builds on the morning — how this
       specific team communicates, where it holds together under pressure,
       and what it agrees to do differently. Practical, not performative.</p>
@@ -179,11 +207,38 @@
         same day. Clean paperwork for your records, prepared by us so it’s
         one less thing on your desk.</p>
         <ul class="doc-list">
-          <li><span>i.</span>Tax invoice</li>
-          <li><span>ii.</span>Attendance register</li>
-          <li><span>iii.</span>Facilitator summary — what the session covered and the commitments made</li>
-          <li><span>iv.</span>Itinerary and supplier record</li>
+          <li><span>i.</span><strong>Tax invoice</strong></li>
+          <li><span>ii.</span><strong>Attendance register</strong></li>
+          <li><span>iii.</span><strong>Facilitator summary</strong> — what the session covered and the commitments made</li>
+          <li><span>iv.</span><strong>Itinerary and supplier record</strong></li>
         </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= PROCUREMENT & COMPLIANCE SUMMARY ======================= -->
+<section class="compliance-band reveal">
+  <div class="compliance-inner">
+    <p class="compliance-k">Procurement &amp; Compliance Summary</p>
+    <div class="compliance-grid">
+      <div class="cc">
+        <span class="cc-i" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none"><path d="M9 12l2 2 4-4" stroke="#B79B61" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9.3" stroke="#B79B61" stroke-width="1.2"/></svg>
+        </span>
+        <span class="cc-t"><strong>ABN Provided</strong><br>96 697 140 877</span>
+      </div>
+      <div class="cc">
+        <span class="cc-i" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none"><path d="M9 12l2 2 4-4" stroke="#B79B61" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9.3" stroke="#B79B61" stroke-width="1.2"/></svg>
+        </span>
+        <span class="cc-t"><strong>Public Liability Insured</strong><br>Certificate available on request</span>
+      </div>
+      <div class="cc">
+        <span class="cc-i" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none"><path d="M9 12l2 2 4-4" stroke="#B79B61" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9.3" stroke="#B79B61" stroke-width="1.2"/></svg>
+        </span>
+        <span class="cc-t"><strong>Same Day Invoicing</strong><br>Tax invoice issued the day of your event</span>
       </div>
     </div>
   </div>
@@ -258,8 +313,7 @@
 <section class="scene-close" id="enquire">
   <div class="close-inner">
     <p class="close-k reveal">
-      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" aria-hidden="true"><path d="M12 4v16M5 13l7 7 7-7" stroke="#cdb88a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      <span class="sr-only">Begin</span>
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" aria-hidden="true"><path d="M5 9l7 7 7-7" stroke="#cdb88a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </p>
     <h2 class="close-line reveal d1">Twenty minutes is all it takes <em>to plan the whole day.</em></h2>
     <p class="close-sub reveal d2">
@@ -299,17 +353,17 @@
 </footer>
 
 <script>
+/* ---------- nav: appear after arrival scene begins to leave ---------- */
 const nav=document.getElementById('nav');
 setTimeout(()=>nav.classList.add('visible'),2600);
-addEventListener('scroll',()=>{
-  nav.classList.toggle('scrolled',scrollY>40);
-},{passive:true});
 
+/* ---------- reveal on scroll ---------- */
 const io=new IntersectionObserver(es=>{
   es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
 },{threshold:.18,rootMargin:'0px 0px -6% 0px'});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
+/* ---------- gentle parallax ---------- */
 const plx=[...document.querySelectorAll('[data-plx]')];
 let ticking=false;
 function onScroll(){
@@ -324,6 +378,7 @@ function onScroll(){
 }
 addEventListener('scroll',onScroll,{passive:true});
 
+/* ---------- subtle mouse drift on arrival scene ---------- */
 const arrival=document.querySelector('.arrival-text');
 addEventListener('mousemove',e=>{
   if(scrollY>innerHeight)return;
