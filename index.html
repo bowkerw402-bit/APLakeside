@@ -36,7 +36,6 @@
 <header class="scene-arrival">
   <div class="arrival-sky" data-plx="0.18"></div>
   <div class="arrival-hills" data-plx="0.1">
-    <!-- Black Mountain + Telstra Tower silhouette -->
     <svg viewBox="0 0 1440 160" preserveAspectRatio="none" fill="none">
       <path d="M0 160 L0 120 Q180 92 340 104 Q520 70 700 96 L820 96 L823 30 L827 30 L828 18 L832 18 L833 30 L837 30 L840 96 Q1040 68 1200 100 Q1330 88 1440 110 L1440 160 Z" fill="#060d1c"/>
       <path d="M0 160 L0 140 Q260 118 520 132 Q860 110 1140 130 Q1320 120 1440 134 L1440 160 Z" fill="#04091466"/>
@@ -104,24 +103,21 @@
     <h2 class="reveal d1">One day. Three movements.</h2>
   </div>
 
-  <!-- replace .ph divs with real photography: see HTML comments -->
   <div class="movement m1">
     <div class="m-photo reveal">
-      <!-- PHOTO: hot air balloons over Lake Burley Griffin at golden hour -->
       <div class="ph ph-water" style="background-image:url('photos/lake-balloons.jpg');background-size:cover;background-position:center"></div><div class="veil"></div>
     </div>
     <div class="m-text reveal d2">
       <p class="m-time">Morning — on the water</p>
       <h3>The lake does the icebreaking.</h3>
       <p>Your team boards at the jetty and the work day falls away behind them.
-      This period of Environmental Welfare time is deliberately open — the
-      conversations that surface here are the raw material for the afternoon.</p>
+      This is deliberately open, unstructured time — the conversations that
+      surface here are the raw material for the afternoon.</p>
     </div>
   </div>
 
   <div class="movement m2">
     <div class="m-photo reveal">
-      <!-- PHOTO: National Carillon, Lake Burley Griffin (placeholder — swap for real catered-lunch shot when available) -->
       <div class="ph ph-table" style="background-image:url('photos/lake-carillon.jpg');background-size:cover;background-position:center"></div><div class="veil"></div>
     </div>
     <div class="m-text reveal d2">
@@ -135,12 +131,11 @@
 
   <div class="movement m3">
     <div class="m-photo reveal">
-      <!-- PHOTO: facilitated session, function room, engaged team -->
       <div class="ph ph-session" style="background-image:url('photos/session-room-1.jpg');background-size:cover;background-position:center 78%"></div><div class="veil"></div>
     </div>
     <div class="m-text reveal d2">
       <p class="m-time">Afternoon — in the room</p>
-      <h3>A Team Reflection Session worth the room's time.</h3>
+      <h3>A facilitated debrief worth the room's time.</h3>
       <p>A facilitated working session that builds on the morning — how this
       specific team communicates, where it holds together under pressure,
       and what it agrees to do differently. Practical, not performative.</p>
@@ -200,7 +195,30 @@
     <p class="tiers-k reveal">The Experiences</p>
     <h2 class="tiers-h reveal d1">Three ways through the day.</h2>
 
-    <div class="tier reveal">
+    <div class="pkg-timeline reveal">
+      <div class="pkg-timeline-row">
+        <a class="pkg-step" href="#tier-foundation">
+          <span class="dot">01</span>
+          <span class="pn">Foundation</span>
+          <span class="pt">Half day · up to 12</span>
+          <span class="pp">From $2,850</span>
+        </a>
+        <a class="pkg-step" href="#tier-elevate">
+          <span class="dot">02</span>
+          <span class="pn">Elevate</span>
+          <span class="pt">Half day + · up to 12</span>
+          <span class="pp">From $4,950</span>
+        </a>
+        <a class="pkg-step" href="#tier-transform">
+          <span class="dot">03</span>
+          <span class="pn">Transform</span>
+          <span class="pt">Full day · up to 15</span>
+          <span class="pp">From $7,950</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="tier reveal" id="tier-foundation">
       <span class="idx">01</span>
       <div class="name">Foundation<small>Half day · up to 12</small></div>
       <p class="desc">Rapid team alignment and structured icebreaking, closing
@@ -209,7 +227,7 @@
       <div class="price"><span class="from">From</span><span class="amt">$2,850</span></div>
     </div>
 
-    <div class="tier reveal d1">
+    <div class="tier reveal d1" id="tier-elevate">
       <span class="badge">Most chosen</span>
       <span class="idx">02</span>
       <div class="name">Elevate<small>Half day + · up to 12</small></div>
@@ -219,7 +237,7 @@
       <div class="price"><span class="from">From</span><span class="amt">$4,950</span></div>
     </div>
 
-    <div class="tier reveal d2">
+    <div class="tier reveal d2" id="tier-transform">
       <span class="idx">03</span>
       <div class="name">Transform<small>Full day · up to 15</small></div>
       <p class="desc">An executive organisational development package with a
@@ -239,7 +257,10 @@
 <!-- ======================= SCENE 7 · DEPARTURE ======================= -->
 <section class="scene-close" id="enquire">
   <div class="close-inner">
-    <p class="close-k reveal">Begin</p>
+    <p class="close-k reveal">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" aria-hidden="true"><path d="M12 4v16M5 13l7 7 7-7" stroke="#cdb88a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span class="sr-only">Begin</span>
+    </p>
     <h2 class="close-line reveal d1">Twenty minutes is all it takes <em>to plan the whole day.</em></h2>
     <p class="close-sub reveal d2">
       A short discovery call. We confirm your team, your goals and your date —
@@ -278,20 +299,17 @@
 </footer>
 
 <script>
-/* ---------- nav: appear after arrival scene begins to leave ---------- */
 const nav=document.getElementById('nav');
 setTimeout(()=>nav.classList.add('visible'),2600);
 addEventListener('scroll',()=>{
   nav.classList.toggle('scrolled',scrollY>40);
 },{passive:true});
 
-/* ---------- reveal on scroll ---------- */
 const io=new IntersectionObserver(es=>{
   es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
 },{threshold:.18,rootMargin:'0px 0px -6% 0px'});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-/* ---------- gentle parallax ---------- */
 const plx=[...document.querySelectorAll('[data-plx]')];
 let ticking=false;
 function onScroll(){
@@ -306,7 +324,6 @@ function onScroll(){
 }
 addEventListener('scroll',onScroll,{passive:true});
 
-/* ---------- subtle mouse drift on arrival scene ---------- */
 const arrival=document.querySelector('.arrival-text');
 addEventListener('mousemove',e=>{
   if(scrollY>innerHeight)return;
